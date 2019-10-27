@@ -1,8 +1,19 @@
 import { Router } from 'express'
+
+// Controllers
 import usersController from './app/controllers/usersController'
 import studentsController from './app/controllers/studentsController'
+import sessionController from './app/controllers/sessionsController'
+
+// Middlewares
+import auth from './app/middlewares/auth'
 
 const router = Router()
+
+// Sessions
+router.post('/sessions', sessionController.store)
+
+router.use(auth)
 
 // Users
 router.get('/users', usersController.index)
