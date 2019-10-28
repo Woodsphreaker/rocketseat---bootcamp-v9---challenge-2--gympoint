@@ -4,11 +4,11 @@ class Students extends Model {
   static init(connection) {
     super.init(
       {
-        nome: Sequelize.STRING,
+        name: Sequelize.STRING,
         email: Sequelize.STRING,
-        idade: Sequelize.INTEGER,
-        peso: Sequelize.INTEGER,
-        altura: Sequelize.FLOAT,
+        age: Sequelize.INTEGER,
+        weight: Sequelize.INTEGER,
+        heigth: Sequelize.FLOAT,
       },
       {
         sequelize: connection,

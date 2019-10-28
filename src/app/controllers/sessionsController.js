@@ -6,7 +6,7 @@ import Users from '../models/Users'
 
 const store = async (req, res, next) => {
   const schema = Yup.object().shape({
-    name: Yup.string().required(),
+    email: Yup.string().required(),
     password: Yup.string().required(),
   })
 
