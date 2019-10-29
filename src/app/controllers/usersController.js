@@ -2,15 +2,15 @@ import Users from '../models/Users'
 import * as Yup from 'yup'
 
 const index = async (req, res) => {
-  const users = await Users.findAll()
+  const users = await Users.findAll({
+    attributes: ['id', 'name', 'email'],
+  })
 
   if (!users) {
     return res.status(400).json({ error: 'no users found' })
   }
 
-  const mappedUsers = users.map(({ id, name, email }) => ({ id, name, email }))
-
-  return res.json(mappedUsers)
+  return res.json(users)
 }
 
 const show = async (req, res) => {

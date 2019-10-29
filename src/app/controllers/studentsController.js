@@ -2,24 +2,15 @@ import Students from '../models/Students'
 import * as Yup from 'yup'
 
 const index = async (req, res) => {
-  const students = await Students.findAll()
+  const students = await Students.findAll({
+    attributes: ['id', 'name', 'email', 'age', 'weight', 'heigth'],
+  })
 
   if (!students) {
     return res.json({ message: 'no students found' })
   }
 
-  const mappedStudents = students.map(
-    ({ id, name, email, age, weight, heigth }) => ({
-      id,
-      name,
-      email,
-      age,
-      weight,
-      heigth,
-    })
-  )
-
-  res.json(mappedStudents)
+  res.json(students)
 }
 const show = async (req, res) => {
   const { id } = req.params
