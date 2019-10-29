@@ -22,6 +22,10 @@ router.use(auth)
 
 // Users
 router.get('/users', usersController.index)
+router.get('/users/:id', usersController.show)
+router.post('/users', usersController.store)
+router.put('/users/:id', usersController.update)
+router.delete('/users/:id', usersController.destroy)
 
 // Students
 router.get('/students', studentsController.index)

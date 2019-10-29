@@ -9,7 +9,8 @@ const index = async (req, res) => {
   }
 
   const mappedStudents = students.map(
-    ({ name, email, age, weight, heigth }) => ({
+    ({ id, name, email, age, weight, heigth }) => ({
+      id,
       name,
       email,
       age,
@@ -32,6 +33,7 @@ const show = async (req, res) => {
   const { name, email, age, weight, heigth } = student
 
   res.json({
+    id,
     name,
     email,
     age,
@@ -132,7 +134,7 @@ const destroy = async (req, res) => {
     return res.status(400).json({ error: 'student not found' })
   }
 
-  Students.destroy({ where: { id } })
+  await student.destroy()
 
   res.json({ message: 'Studend deleted' })
 }
