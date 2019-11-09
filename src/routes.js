@@ -4,6 +4,7 @@ import { Router } from 'express'
 import usersController from './app/controllers/usersController'
 import studentsController from './app/controllers/studentsController'
 import sessionController from './app/controllers/sessionsController'
+import plansController from './app/controllers/plansController'
 
 // Middlewares
 import auth from './app/middlewares/auth'
@@ -33,5 +34,12 @@ router.get('/students/:id', studentsController.show)
 router.post('/students', studentsController.store)
 router.put('/students/:id', studentsController.update)
 router.delete('/students/:id', studentsController.destroy)
+
+// Plans
+router.get('/plans', plansController.index)
+router.get('/plans/:id', plansController.show)
+router.post('/plans', plansController.store)
+router.put('/plans/:id', plansController.update)
+router.delete('/plans/:id', plansController.destroy)
 
 export default router
