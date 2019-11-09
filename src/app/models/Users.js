@@ -20,6 +20,8 @@ class Users extends Model {
         return (user.password_hash = await bcrypt.hash(user.password, 8))
       }
     })
+
+    return this
   }
 
   checkPassword(oldPassword) {

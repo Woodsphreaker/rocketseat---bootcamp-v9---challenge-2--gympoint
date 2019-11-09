@@ -14,6 +14,7 @@ class Students extends Model {
         sequelize: connection,
       }
     )
+    return this
   }
 }
 
