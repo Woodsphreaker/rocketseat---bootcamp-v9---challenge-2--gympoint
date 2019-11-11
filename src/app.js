@@ -6,6 +6,7 @@ import sentryConfig from './config/sentry'
 import 'express-async-errors'
 import routes from './routes.js'
 import helmet from 'helmet'
+import Youch from 'youch'
 import './database'
 
 Sentry.init(sentryConfig)
@@ -28,7 +29,8 @@ app.use((req, res) => {
 // Error handler
 app.use(async (err, req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
-    return res.status(500).json(err)
+    const erros = await new Youch(err, req).toJSON()
+    return res.status(500).json(erros)
   }
 
   return res.status(500).json({ message: 'Internal Server Error' })
