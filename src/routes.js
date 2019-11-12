@@ -45,5 +45,6 @@ router.delete('/plans/:id', plansController.destroy)
 
 // Registrations
 router.get('/registrations', registrationsController.index)
+router.post('/registrations', registrationsController.store)
 
 export default router

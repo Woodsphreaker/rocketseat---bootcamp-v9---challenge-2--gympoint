@@ -7,6 +7,12 @@ class Registrations extends Model {
         start_date: Sequelize.DATE,
         end_date: Sequelize.DATE,
         price: Sequelize.INTEGER,
+        priceFormated: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return 'test'
+          },
+        },
       },
       {
         sequelize: connection,
