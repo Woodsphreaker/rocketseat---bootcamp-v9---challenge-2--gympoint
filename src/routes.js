@@ -6,6 +6,7 @@ import studentsController from './app/controllers/studentsController'
 import sessionController from './app/controllers/sessionsController'
 import plansController from './app/controllers/plansController'
 import registrationsController from './app/controllers/registrationsController'
+import ckeckinsController from './app/controllers/checkinsController'
 
 // Middlewares
 import auth from './app/middlewares/auth'
@@ -14,6 +15,10 @@ const router = Router()
 
 // Sessions
 router.post('/sessions', sessionController.store)
+
+// Checkins
+router.get('/students/:id/checkins', ckeckinsController.index)
+router.post('/students/:id/checkins', ckeckinsController.store)
 
 /*
  ************************
