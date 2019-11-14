@@ -7,6 +7,8 @@ import sessionController from './app/controllers/sessionsController'
 import plansController from './app/controllers/plansController'
 import registrationsController from './app/controllers/registrationsController'
 import ckeckinsController from './app/controllers/checkinsController'
+import helpOrdersController from './app/controllers/helpOrdersController'
+import answersController from './app/controllers/answersController'
 
 // Middlewares
 import auth from './app/middlewares/auth'
@@ -19,6 +21,10 @@ router.post('/sessions', sessionController.store)
 // Checkins
 router.get('/students/:id/checkins', ckeckinsController.index)
 router.post('/students/:id/checkins', ckeckinsController.store)
+
+// Help Orders
+router.get('/students/:id/help-orders', helpOrdersController.index)
+router.post('/students/:id/help-orders', helpOrdersController.store)
 
 /*
  ************************
@@ -54,5 +60,9 @@ router.get('/registrations/:id', registrationsController.show)
 router.post('/registrations', registrationsController.store)
 router.put('/registrations/:id', registrationsController.update)
 router.delete('/registrations/:id', registrationsController.destroy)
+
+// Answers
+router.get('/help-orders', answersController.index)
+router.post('/help-orders/:id/answer', answersController.store)
 
 export default router

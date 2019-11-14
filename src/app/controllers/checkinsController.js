@@ -41,7 +41,7 @@ const index = async (req, res) => {
   const output = checkins.map(({ created_at, student }) => ({
     name: student.name,
     email: student.email,
-    checkin: format(created_at, "dd 'de' MMMM 'de' yyyy 'às' hh:mm:ss:xxxx", {
+    checkin: format(created_at, 'dd \'de\' MMMM \'de\' yyyy \'às\' hh:mm:ss:xxxx', {
       locale: pt,
     }),
   }))
