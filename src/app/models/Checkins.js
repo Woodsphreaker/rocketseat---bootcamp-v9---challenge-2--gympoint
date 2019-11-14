@@ -1,11 +1,11 @@
 import Sequelize, { Model } from 'sequelize'
 
-class ModelName extends Model {
+class Checkins extends Model {
   static init(connection) {
     super.init(
       {
-        created_at: Sequelize.INTEGER,
-        updated_at: Sequelize.INTEGER,
+        student_id: Sequelize.INTEGER,
+        created_at: Sequelize.DATE,
       },
       {
         sequelize: connection,
@@ -20,4 +20,4 @@ class ModelName extends Model {
   }
 }
 
-export default ModelName
+export default Checkins
